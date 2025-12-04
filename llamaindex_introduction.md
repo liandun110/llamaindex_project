@@ -196,6 +196,7 @@ if __name__ == "__main__":
 
 ```bash
 pip install llama-index-llms-ollama -i https://mirrors.aliyun.com/pypi/simple/
+pip install llama-index-tools-tavily-research -i https://mirrors.aliyun.com/pypi/simple/
 ```
 
 ```python
