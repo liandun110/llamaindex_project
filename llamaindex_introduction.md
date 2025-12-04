@@ -194,16 +194,14 @@ if __name__ == "__main__":
 
 # 基于 fastapi 后端，调用智能体
 
-## 后端代码
-
 ```python
 import os
-import asyncio
 from llama_index.core.agent.workflow import FunctionAgent
 from llama_index.core import Settings
 from llama_index.llms.ollama import Ollama
 from llama_index.tools.tavily_research import TavilyToolSpec
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -230,20 +228,17 @@ workflow = FunctionAgent(
 
 @app.post("/api/ask")
 async def main():
+    print('开始查询')
     response = await workflow.run(
         user_msg="Who is Ben Afflecks spouse? 用中文回复"
     )
     print(response)
-
-# Run the agent
-if __name__ == "__main__":
-    asyncio.run(main())
+    return response
 ```
 
 运行方式：`python -m uvicorn main:app --reload --port 8001`
 
-## 前端
-
+调用方式：`curl -X POST http://localhost:8001/api/ask`
 
 # 基于 RAG 的问答
 
