@@ -8,6 +8,17 @@
 pip install llama_index -i https://mirrors.aliyun.com/pypi/simple/
 ```
 
+# 从 DashScope 调用千问大模型
+```python
+from llama_index.llms.dashscope import DashScope, DashScopeGenerationModels
+
+llm = DashScope(model_name=DashScopeGenerationModels.QWEN_MAX,
+                         api_key="sk-efe1c9004f7e4de0a8ade26120301c6d")
+
+response = llm.complete(prompt="Who are you?")
+print(response)
+```
+
 # 调用 ollama 实现 agent 和 tools
 
 ```bash
