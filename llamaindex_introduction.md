@@ -194,6 +194,10 @@ if __name__ == "__main__":
 
 # 基于 fastapi 后端，调用智能体
 
+```bash
+pip install llama-index-llms-ollama -i https://mirrors.aliyun.com/pypi/simple/
+```
+
 ```python
 import os
 from llama_index.core.agent.workflow import FunctionAgent
